@@ -1,11 +1,13 @@
 # lucene-kuromoji-sample
 姓名分割されていない漢字氏名をlucene kuromojiを利用して、分割、フリガナ予測を行います
 
+
 # 導入方法
 以下の２パターンの利用方法があります。
 1.Java内に追加する(推奨)
 2.バッチとして利用する
 ※辞書の読み込みに多少時間がかかるため、多少処理が遅いため、1.での利用をおすすめします。
+
 
 # 1.Java内に追加する
 ## 1-1.前提
@@ -31,6 +33,7 @@
 下記[ソース]()を参照
 ※実行方法は、[junitテスト]()をご参考
 
+
 # 2.バッチとして利用する
 ## 2-1.前提
 * 辞書の読み込みに多少時間がかかるため、多少処理が遅い
@@ -38,6 +41,7 @@
 
 ## 2-2.導入方法
 * 以下コマンドを実行する
+
 
 ```
 # ソースコードを取得
@@ -54,6 +58,7 @@ cd target
 java -jar lucene-kuromoji-sample-0.0.1-SNAPSHOT-jar-with-dependencies.jar 山田 太郎
 ```
 
+
 ## 2-3.実行方法
 
 ```
@@ -62,4 +67,5 @@ java -jar lucene-kuromoji-sample-0.0.1-SNAPSHOT-jar-with-dependencies.jar 山田
 # 例)rubyの場合
 system('java -jar lucene-kuromoji-sample-0.0.1-SNAPSHOT-jar-with-dependencies.jar ${氏名}')                                                                                               
 ```
+
 
