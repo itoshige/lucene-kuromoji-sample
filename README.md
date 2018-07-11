@@ -1,5 +1,5 @@
 # lucene-kuromoji-sample
-姓名分割されていない漢字氏名をlucene kuromojiを利用して、分割、フリガナ予測を行います
+姓名分割されていない漢字氏名を、lucene kuromojiを利用して分割し、フリガナ予測を行います
 
 <br />
 
@@ -103,7 +103,11 @@ JapaneseTokenizer tokenizer = new JapaneseTokenizer(dict, false, JapaneseTokeniz
 
 <br />
 
-## 参考
+## 備考
+##### ご利用について
+* 当サンプルはいかなる保証もおこなっておりません。
+* 当サンプルをご利用時は、利用者の責任においてご利用ください。
+
 ##### テストデータ
 精度確認用に下記ツールを利用して、テストデータを生成しました。
 * [疑似個人情報生成 - 生成条件入力](https://hogehoge.tk/personal/generator/?)
