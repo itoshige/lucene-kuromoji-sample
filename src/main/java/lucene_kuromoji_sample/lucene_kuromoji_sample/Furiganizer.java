@@ -1,9 +1,12 @@
 package lucene_kuromoji_sample.lucene_kuromoji_sample;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.StringReader;
 
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
+import org.codelibs.neologd.ipadic.lucene.analysis.ja.dict.UserDictionary;
 import org.codelibs.neologd.ipadic.lucene.analysis.ja.JapaneseTokenizer;
 import org.codelibs.neologd.ipadic.lucene.analysis.ja.tokenattributes.ReadingAttribute;
 
@@ -41,14 +44,20 @@ public class Furiganizer
 	 * 姓名分割されていない漢字氏名をkuromojiを使用して分割、予測したフリガナを返却する
 	 * 
 	 * @param name
+	 * @param userDictonary：ユーザ辞書
 	 * @return
 	 * @throws IOException
 	 */
-     public static String furiganize(String name) throws IOException {
+    public static String furiganize(String name, String userDictonary) throws IOException {
+    	// 返却する漢字氏名・フリガナ氏名
         StringBuilder kanjiName = new StringBuilder();
         StringBuilder kanaName = new StringBuilder();
     	
-    	try (JapaneseTokenizer tokenizer = new JapaneseTokenizer(null, false, JapaneseTokenizer.Mode.NORMAL)) {
+        // ユーザ辞書を定義
+        InputStreamReader isr = getResource(userDictonary);
+        UserDictionary dict = (isr != null) ? UserDictionary.open(isr) : null;
+        
+        try (JapaneseTokenizer tokenizer = new JapaneseTokenizer(dict, false, JapaneseTokenizer.Mode.NORMAL)) {
     		
     	    tokenizer.setReader(new StringReader(name));
     	    
@@ -76,5 +85,24 @@ public class Furiganizer
     	    
             return kanjiName.append(",").append(kanaName).toString();
     	}
-    }     
+    }
+    
+    /**
+     * 姓名分割されていない漢字氏名をkuromojiを使用して分割、予測したフリガナを返却する
+     * 
+     * @param name
+     * @return
+     * @throws IOException
+     */
+    public static String furiganize(String name) throws IOException {
+    	 return furiganize(name, null);
+    }
+     
+    private static InputStreamReader getResource(String userDictonary) {
+    	if(userDictonary == null)
+    		return null;
+    	
+    	ClassLoader classLoader = Furiganizer.class.getClassLoader();
+    	return new InputStreamReader(classLoader.getResourceAsStream(userDictonary));
+    }
 }
