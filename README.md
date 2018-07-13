@@ -1,5 +1,5 @@
 # lucene-kuromoji-sample
-姓名分割されていない漢字氏名を、lucene kuromojiを利用して分割し、フリガナ予測を行います
+姓名分割されていない漢字氏名を、lucene kuromojiを利用して分割し、フリガナ予測を行います。
 
 <br />
 
