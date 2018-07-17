@@ -15,7 +15,7 @@ import org.junit.Test;
 public class FuriganizerTest {
 	@Test
 	public void ひらがな変換の精度確認_漢字スペースあり_1件() throws IOException {
-		String expectedKanji = "万行 達規";
+		String expectedKanji = "　万行 達規　";
 		String kanjiKana = Furiganizer.furiganize(expectedKanji);
 		System.out.println(kanjiKana);
 	}
@@ -68,8 +68,8 @@ public class FuriganizerTest {
 			String kuromojikanji = name[0];
 			String kuromojikana = name[1];
 
-			System.out.print("kanji:" + expectedKanji + "	expected:" + expectedkana + "	kuromojikanji:"
-					+ kuromojikanji + "	kuromojikana:" + kuromojikana);
+			System.out.print("[expected]kanji:" + expectedKanji + " kana:" + expectedkana + "	[mesured]kanji:"
+					+ kuromojikanji + " kana:" + kuromojikana);
 			if (kuromojikana.equals(expectedkana)) {
 				correct++;
 				System.out.print("	○");

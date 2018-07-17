@@ -53,17 +53,17 @@
 
 ```
 # ソースコードを取得
-git clone XX
+git clone https://github.com/itoshige/lucene-kuromoji-sample.git
 
 cd lucene-kuromoji-sample
 
 # jarファイルを作成
-mvn clean install
+mvn clean install -DskipTests=true
 
 cd target
 
 # jarファイルをテスト実行
-java -jar lucene-kuromoji-sample-0.0.1-SNAPSHOT-jar-with-dependencies.jar 山田 太郎
+java -jar lucene-kuromoji-sample-0.0.1-jar-with-dependencies.jar 山田 太郎
 ```
 
 <br />
@@ -74,7 +74,7 @@ java -jar lucene-kuromoji-sample-0.0.1-SNAPSHOT-jar-with-dependencies.jar 山田
 プログラムから下記コマンドを実行
 
 # 例)rubyの場合
-system('java -jar lucene-kuromoji-sample-0.0.1-SNAPSHOT-jar-with-dependencies.jar ${氏名}')                                                                                               
+system('java -jar lucene-kuromoji-sample-0.0.1-jar-with-dependencies.jar ${氏名}')                                                                                               
 ```
 
 <br />

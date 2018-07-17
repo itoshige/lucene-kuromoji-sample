@@ -44,6 +44,9 @@ public class Furiganizer {
 	 * @throws IOException
 	 */
 	public static String furiganize(String name, String userDictonary) throws IOException {
+		if (isEmpty(name))
+			return "";
+
 		// 返却する漢字氏名・フリガナ氏名
 		StringBuilder kanjiName = new StringBuilder();
 		StringBuilder kanaName = new StringBuilder();
@@ -63,8 +66,7 @@ public class Furiganizer {
 				String kanji = charTermAttribute.toString();
 
 				// 半角・全角スペース・*はskip
-				if (kanji == null || kanji.trim().length() == 0 || kanji.replaceAll(WSPACE, "").length() == 0
-						|| kanji.equals("*")) {
+				if (isEmpty(kanji) || kanji.equals("*")) {
 					continue;
 				}
 
@@ -100,5 +102,15 @@ public class Furiganizer {
 
 		ClassLoader classLoader = Furiganizer.class.getClassLoader();
 		return new InputStreamReader(classLoader.getResourceAsStream(userDictonary));
+	}
+
+	/**
+	 * null、半角または全角スペースか判定する
+	 * 
+	 * @param value
+	 * @return
+	 */
+	private static boolean isEmpty(String value) {
+		return (value == null || value.trim().length() == 0 || value.replaceAll(WSPACE, "").length() == 0);
 	}
 }
