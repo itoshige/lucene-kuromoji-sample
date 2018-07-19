@@ -37,6 +37,7 @@
 ### 1-3.導入・実行方法
 * 下記[ソース]()を参照
 * 実行方法は、[junitテスト]()をご参考
+* ※サンプルコードでは、漢字・フリガナの間に「,」が入り、姓と名の間に半角スペースを入れています。適宜ご修正ください。
 
 <br />
 
@@ -63,7 +64,11 @@ mvn clean install -DskipTests=true
 cd target
 
 # jarファイルをテスト実行
-java -jar lucene-kuromoji-sample-0.0.1-jar-with-dependencies.jar 山田 太郎
+java -jar lucene-kuromoji-sample-0.0.1-jar-with-dependencies.jar 橘高司
+-------------
+橘 高司,タチバナ タカシ
+※サンプルコードでは、漢字・フリガナの間に「,」が入り、姓と名の間に半角スペースを入れています。適宜ご修正ください。
+-------------
 ```
 
 <br />
