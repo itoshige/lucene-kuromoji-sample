@@ -17,7 +17,8 @@
 <br />
 
 ### 1-2.導入方法
-#### 1-2-1.maven等のプロジェクト管理ツールを利用している場合
+#### 1-2-1.elasticsearch-analysis-kuromoji-neologdを導入
+**mavenを利用している場合**
 下記をdependencyに追加
 
 ```
@@ -27,13 +28,13 @@
     <version>6.3.1</version>
 </dependency>
 ```
-
-#### 1-2-2.maven等のプロジェクト管理ツールを利用していない場合
+**mavenを利用していない場合**
 * [Elasticsearch Analysis Kuromoji Neologd](https://mvnrepository.com/artifact/org.codelibs/elasticsearch-analysis-kuromoji-neologd/6.3.1)から[jar](http://central.maven.org/maven2/org/codelibs/elasticsearch-analysis-kuromoji-neologd/6.3.1/elasticsearch-analysis-kuromoji-neologd-6.3.1.jar)をダウンロード
 * 自身のJavaプロジェクトにJarファイルを追加
 
 <br />
 
+#### 1-2-2.サンプルコードを参考にロジックを追加
 * [Furiganizer.java](https://github.com/itoshige/lucene-kuromoji-sample/blob/master/src/main/java/lucene_kuromoji_sample/lucene_kuromoji_sample/Furiganizer.java)の```public static String furiganize(String name, String userDictonary)```を参照に、ロジックを追加
 * ※実行方法は、[junitテスト](https://github.com/itoshige/lucene-kuromoji-sample/blob/master/src/test/java/lucene_kuromoji_sample/lucene_kuromoji_sample/FuriganizerTest.java)をご参考
 * ※サンプルコードでは、漢字・フリガナの間に「,」が入り、姓と名の間に半角スペースを入れています。適宜ご修正ください。
