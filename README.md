@@ -34,9 +34,8 @@
 
 <br />
 
-### 1-3.導入・実行方法
-* 下記[ソース]()を参照
-* 実行方法は、[junitテスト]()をご参考
+* [Furiganizer.java](https://github.com/itoshige/lucene-kuromoji-sample/blob/master/src/main/java/lucene_kuromoji_sample/lucene_kuromoji_sample/Furiganizer.java)の```public static String furiganize(String name, String userDictonary)```を参照に、ロジックを追加
+* ※実行方法は、[junitテスト](https://github.com/itoshige/lucene-kuromoji-sample/blob/master/src/test/java/lucene_kuromoji_sample/lucene_kuromoji_sample/FuriganizerTest.java)をご参考
 * ※サンプルコードでは、漢字・フリガナの間に「,」が入り、姓と名の間に半角スペースを入れています。適宜ご修正ください。
 
 <br />
