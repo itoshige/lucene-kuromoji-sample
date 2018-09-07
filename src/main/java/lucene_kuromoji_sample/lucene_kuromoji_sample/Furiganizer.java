@@ -3,6 +3,8 @@ package lucene_kuromoji_sample.lucene_kuromoji_sample;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.codelibs.neologd.ipadic.lucene.analysis.ja.JapaneseTokenizer;
@@ -73,7 +75,7 @@ public class Furiganizer {
 				kanjiName.append(kanji + " ");
 
 				String kana = readingAttribute.getReading();
-				if (kana == null) {
+				if (kana == null || isAlphanumeric(kanji)) {
 					kana = charTermAttribute.toString();
 				}
 				kanaName.append(kana + " ");
@@ -112,5 +114,18 @@ public class Furiganizer {
 	 */
 	private static boolean isEmpty(String value) {
 		return (value == null || value.trim().length() == 0 || value.replaceAll(WSPACE, "").length() == 0);
+	}
+
+	/**
+	 * 英数字のみか判定する
+	 * 
+	 * @param value
+	 * @return
+	 */
+	private static boolean isAlphanumeric(String value) {
+		Pattern p = Pattern.compile("^[a-zA-Z0-9]+$");
+		Matcher m = p.matcher(value);
+
+		return m.find();
 	}
 }
