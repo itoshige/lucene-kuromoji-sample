@@ -28,9 +28,6 @@
     <version>6.3.1</version>
 </dependency>
 ```
-**mavenを利用していない場合**
-* [Elasticsearch Analysis Kuromoji Neologd](https://mvnrepository.com/artifact/org.codelibs/elasticsearch-analysis-kuromoji-neologd/6.3.1)から[jar](http://central.maven.org/maven2/org/codelibs/elasticsearch-analysis-kuromoji-neologd/6.3.1/elasticsearch-analysis-kuromoji-neologd-6.3.1.jar)をダウンロード
-* 自身のJavaプロジェクトにJarファイルを追加
 
 <br />
 
